@@ -1,0 +1,235 @@
+$white_color: #ddd;
+$red-nba: #c31515dd;
+
+@mixin flexBox($aI: none, $jC: none, $position: row, $gap: none) {
+    display: flex;
+    flex-direction: $position;
+    align-items: $aI;
+    justify-content: $jC;
+    gap: $gap;
+}
+
+@mixin grid($aI: center, $aC: center, $jI: center, $jC: center, $position: row, $cGap: 0.5em, $rGap:0.5em) {
+    display: grid;
+    align-items: $aI;
+    align-content: $aC;
+    justify-items: $jI;
+    justify-content: $jC;
+    row-gap: $rGap;
+    column-gap: $cGap;
+}
+
+.body {
+    @include flexBox($position: column);
+}
+
+.header {
+    @include flexBox($jC: space-between);
+    background-color: $red-nba;
+    &__icon {
+        position: relative;
+        &-img {
+            width: 5em;
+            margin: 0.2em 1em;
+        }
+    }
+}
+
+.banner{
+    background: url(../img/NBA-SALE-BANNER-DESKTOP.webp);
+    background-size: contain;
+    background-position: center center;
+    height: 8em;
+}
+
+.banner-responsive{
+    display: none;
+    background: url(../img/nba-responsive.avif);
+}
+
+.main {
+    @include grid($rGap:3em);
+    grid-template-columns: repeat(auto-fill, minmax(23em, 1fr));
+    margin: 3em 0;
+
+    .product {
+        @include flexBox($position: column, $aI: center, $gap: 0.2em);
+        border: solid 0.1em;
+        border-radius: 1em;
+        background-color: #fff;
+
+        &__img {
+            width: 20em;
+            height: 20em;
+            padding: 1em 0;
+        }
+
+        &__title {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        &__price {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        &__button {
+            width: auto;
+            height: auto;
+            padding: 0.2em 0.5em;
+            margin-bottom: 1em;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.shopping {
+    position: fixed;
+    background-color: #fff;
+    left: -100%;
+    top: 6em;
+    width: 18em;
+    border: solid #000;
+    border-radius: .5em;
+    transition: all 0.5s ease-out;
+    @include flexBox($position: column, $jC: space-between);
+
+    &__header {
+        @include flexBox($jC: space-between, $aI: center);
+        margin: 0 0.5em;
+        border-bottom: 0.1em solid #777;
+    }
+
+    &__blank {
+        width: 1.5em;
+    }
+
+    &__title {
+        margin: 0 0.5em
+    }
+
+    &__close {
+        margin-right: 0.5em;
+
+        &-icon {
+            width: 1em;
+            @include flexBox($aI: center)
+        }
+    }
+
+    .shop-car {
+        @include flexBox($aI: center, $jC: space-between);
+
+        margin: 0 0.8em;
+
+        &__img {
+            width: 3em;
+            margin: 0;
+        }
+
+        &__product {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        &__price {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        &__icon {
+            width: 1.5em;
+            margin: 0;
+        }
+    }
+
+    &__button {
+        background-color: #fff;
+        color:#000;
+        height: 5rem;
+        border: none;
+    }
+}
+
+@media screen and (max-width:27em) {//responsivo para teléfonos móviles
+    .banner{
+        display: none;
+    }
+
+    .banner-responsive{
+        order: 1;
+        display: block;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 10em;
+    }
+
+    .main{
+    order: 2;
+    background-color: #000;
+    margin: 0;
+    padding: 2em 0;
+   }
+
+    .header{
+        order: 3;
+        &__icon{
+            &-img{
+                width: 3em;
+            }
+        }
+    }
+
+    .shopping{
+        height: 100%;
+        width: 100%;
+        top: 0;
+        border: none;
+    }
+}
+
+@media screen and (max-width:64em) {//responsivo para tablets y hubs
+    .main{
+        grid-template-columns: repeat(auto-fill,minmax(18em, 1fr));
+        margin: 0;
+        .product{
+            border: none;
+        }
+    }
+}
+
+.hoverElement {
+    opacity: 1.50;
+    cursor: pointer;
+    transition: transform 1s ease, opacity 1s ease;
+    transform: scale(1.1);
+}
+
+.show {
+    left: 0;
+}
+
+.filled {
+    background-color: #777;
+    color: #fff;
+    height: 2em;
+
+}
+
+.header__icon-count{
+    @include flexBox($aI: center, $jC: center);
+    position: absolute;
+    top: 10%;
+    right: 13%;
+    background-color: transparent;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 1em;
+}
+
+.icon-background{
+    background-color: rgb(255, 166, 0);
+}

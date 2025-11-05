@@ -1,0 +1,227 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: none;
+  justify-content: none;
+  gap: none;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: none;
+  justify-content: space-between;
+  gap: none;
+  background-color: rgba(195, 21, 21, 0.8666666667);
+}
+.header__icon {
+  position: relative;
+}
+.header__icon-img {
+  width: 5em;
+  margin: 0.2em 1em;
+}
+
+.banner {
+  background: url(../img/NBA-SALE-BANNER-DESKTOP.webp);
+  background-size: contain;
+  background-position: center center;
+  height: 8em;
+}
+
+.banner-responsive {
+  display: none;
+  background: url(../img/nba-responsive.avif);
+}
+
+.main {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  justify-content: center;
+  row-gap: 3em;
+  -moz-column-gap: 0.5em;
+       column-gap: 0.5em;
+  grid-template-columns: repeat(auto-fill, minmax(23em, 1fr));
+  margin: 3em 0;
+}
+.main .product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: none;
+  gap: 0.2em;
+  border: solid 0.1em;
+  border-radius: 1em;
+  background-color: #fff;
+}
+.main .product__img {
+  width: 20em;
+  height: 20em;
+  padding: 1em 0;
+}
+.main .product__title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.main .product__price {
+  margin: 0;
+  font-size: 1.8rem;
+}
+.main .product__button {
+  width: auto;
+  height: auto;
+  padding: 0.2em 0.5em;
+  margin-bottom: 1em;
+  font-size: 1.5rem;
+}
+
+.shopping {
+  position: fixed;
+  background-color: #fff;
+  left: -100%;
+  top: 6em;
+  width: 18em;
+  border: solid #000;
+  border-radius: 0.5em;
+  transition: all 0.5s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: none;
+  justify-content: space-between;
+  gap: none;
+}
+.shopping__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: none;
+  margin: 0 0.5em;
+  border-bottom: 0.1em solid #777;
+}
+.shopping__blank {
+  width: 1.5em;
+}
+.shopping__title {
+  margin: 0 0.5em;
+}
+.shopping__close {
+  margin-right: 0.5em;
+}
+.shopping__close-icon {
+  width: 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: none;
+  gap: none;
+}
+.shopping .shop-car {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: none;
+  margin: 0 0.8em;
+}
+.shopping .shop-car__img {
+  width: 3em;
+  margin: 0;
+}
+.shopping .shop-car__product {
+  font-size: 1rem;
+  margin: 0;
+}
+.shopping .shop-car__price {
+  font-size: 1rem;
+  margin: 0;
+}
+.shopping .shop-car__icon {
+  width: 1.5em;
+  margin: 0;
+}
+.shopping__button {
+  background-color: #fff;
+  color: #000;
+  height: 5rem;
+  border: none;
+}
+
+@media screen and (max-width: 27em) {
+  .banner {
+    display: none;
+  }
+  .banner-responsive {
+    order: 1;
+    display: block;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 10em;
+  }
+  .main {
+    order: 2;
+    background-color: #000;
+    margin: 0;
+    padding: 2em 0;
+  }
+  .header {
+    order: 3;
+  }
+  .header__icon-img {
+    width: 3em;
+  }
+  .shopping {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    border: none;
+  }
+}
+@media screen and (max-width: 64em) {
+  .main {
+    grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
+    margin: 0;
+  }
+  .main .product {
+    border: none;
+  }
+}
+.hoverElement {
+  opacity: 1.5;
+  cursor: pointer;
+  transition: transform 1s ease, opacity 1s ease;
+  transform: scale(1.1);
+}
+
+.show {
+  left: 0;
+}
+
+.filled {
+  background-color: #777;
+  color: #fff;
+  height: 2em;
+}
+
+.header__icon-count {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: none;
+  position: absolute;
+  top: 10%;
+  right: 13%;
+  background-color: transparent;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 1em;
+}
+
+.icon-background {
+  background-color: rgb(255, 166, 0);
+}/*# sourceMappingURL=ventana.css.map */
